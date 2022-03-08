@@ -81,8 +81,8 @@ class LoginScreen extends StatelessWidget {
           child: Stack(
             children: [
               BlocListener<LoginBloc, LoginState>(
-                listener: (context, state) {
-                  if(state is LoginSuccessfulState){
+                listener: (context, state){
+                  if(state is LoginSuccessfulState) {
                     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeParent(user: state.user,)));
                   }
                 },

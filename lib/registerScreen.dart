@@ -5,6 +5,7 @@ import 'package:flutter_app/blocs/registerBloc/register_state.dart';
 import 'package:flutter_app/homeScreen.dart';
 import 'package:flutter_app/loginScreen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class RegisterParent extends StatelessWidget {
   const RegisterParent({Key key}) : super(key: key);
@@ -82,7 +83,7 @@ class RegisterScreen extends StatelessWidget {
           child: Stack(
             children: [
               BlocListener<RegisterBloc, RegisterState>(
-                listener: (context, state) {
+                listener: (context, state){
                   if(state is RegisterSuccessfulState){
                     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeParent(user: state.user,)));
                   }

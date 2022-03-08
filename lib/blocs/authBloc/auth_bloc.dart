@@ -2,13 +2,14 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter_app/blocs/authBloc/auth_event.dart';
 import 'package:flutter_app/blocs/authBloc/auth_state.dart';
 import 'package:flutter_app/repositories/user_repository.dart';
-import 'package:meta/meta.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   UserRepository userRepository;
 
-  AuthBloc({@required this.userRepository});
+  AuthBloc(){
+    userRepository = UserRepository();
+  }
 
   @override
   AuthState get initialState => AuthInitialState();
