@@ -5,10 +5,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 class UserRepository {
   FirebaseAuth firebaseAuth;
 
-  UserRepository() {
+
+  UserRepository(){
     firebaseAuth = FirebaseAuth.instance;
   }
-  
+
   Future<User> createUser(String email, String password) async{
       try{
         var result = await firebaseAuth.createUserWithEmailAndPassword(email: email, password: password);

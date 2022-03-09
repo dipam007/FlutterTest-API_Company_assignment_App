@@ -112,6 +112,7 @@ class LoginScreen extends StatelessWidget {
                       decoration: InputDecoration(
                         labelText: "Enter Email",
                         labelStyle: const TextStyle(color: Colors.tealAccent, fontWeight: FontWeight.bold),
+                        fillColor: Colors.white,
                         prefixIcon: const Icon(Icons.email, color: Colors.tealAccent,),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20.0),
@@ -132,15 +133,16 @@ class LoginScreen extends StatelessWidget {
                     margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.02, right: MediaQuery.of(context).size.width*0.05, left: MediaQuery.of(context).size.width*0.05, ),
                     child: TextFormField(
                       controller: _passController,
+                      obscureText: true,
                       decoration: InputDecoration(
                         labelText: "Enter Password",
                         labelStyle: const TextStyle(color: Colors.tealAccent, fontWeight: FontWeight.bold),
+                        fillColor: Colors.white,
                         prefixIcon: const Icon(Icons.lock_outline, color: Colors.tealAccent,),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20.0),
                           borderSide: const BorderSide(color: Colors.white70),
                         ),
-                        fillColor: Colors.white,
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20.0),
                           borderSide: const BorderSide(color: Colors.tealAccent,),

@@ -1,5 +1,6 @@
 import 'package:flutter_app/blocs/homePageBloc/homePage_event.dart';
 import 'package:flutter_app/blocs/homePageBloc/homePage_state.dart';
+import 'package:flutter_app/data/repository/apiRepository.dart';
 import 'package:flutter_app/repositories/user_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -16,7 +17,7 @@ class HomePageBloc extends Bloc<HomePageEvent, HomePageState>{
 
   @override
   Stream<HomePageState> mapEventToState(HomePageEvent event) async*{
-     try{
+     try {
        if(event is LogOutButtonPressedEvent){
          await userRepository.signOut();
          yield LogOutSuccessfulState();

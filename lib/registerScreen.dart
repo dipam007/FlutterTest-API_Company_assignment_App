@@ -157,6 +157,7 @@ class RegisterScreen extends StatelessWidget {
                     margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.02, right: MediaQuery.of(context).size.width*0.05, left: MediaQuery.of(context).size.width*0.05, ),
                     child: TextFormField(
                       controller: _passController,
+                      obscureText: true,
                       decoration: InputDecoration(
                         labelText: "Enter Password",
                         labelStyle: const TextStyle(color: Colors.limeAccent, fontWeight: FontWeight.bold),
