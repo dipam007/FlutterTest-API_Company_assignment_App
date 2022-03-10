@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/blocs/homePageBloc/homePage_bloc.dart';
 import 'package:flutter_app/blocs/homePageBloc/homePage_event.dart';
 import 'package:flutter_app/blocs/homePageBloc/homePage_state.dart';
-import 'package:flutter_app/data/model/api_result_model.dart';
 import 'package:flutter_app/dataScreen.dart';
 import 'package:flutter_app/loginScreen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -65,7 +64,10 @@ class HomeScreen extends StatelessWidget {
                       return const SizedBox(height: 0, width: 0,);
                     }
                     else{
-                      return const Center(child: CircularProgressIndicator());
+                      return Container(
+                          alignment: Alignment.center,
+                          child: const CircularProgressIndicator()
+                      );
                     }
                 }
             ),

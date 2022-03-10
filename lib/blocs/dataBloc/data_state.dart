@@ -6,13 +6,11 @@ abstract class DataState extends Equatable{}
 
 class DataInitialState extends DataState{
   @override
-  // TODO: implement props
   List<Object> get props => [];
 }
 
 class DataLoadingState extends DataState{
   @override
-  // TODO: implement props
   List<Object> get props => [];
 }
 
@@ -23,7 +21,6 @@ class DataLoadedState extends DataState{
   DataLoadedState({@required this.list});
 
   @override
-  // TODO: implement props
   List<Object> get props => [list];
 }
 
@@ -34,7 +31,6 @@ class DataErrorState extends DataState{
   DataErrorState({@required this.msg});
 
   @override
-  // TODO: implement props
   List<Object> get props => [msg];
 }
 

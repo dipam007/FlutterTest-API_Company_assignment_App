@@ -3,6 +3,7 @@ import 'package:flutter_app/blocs/dataBloc/data_bloc.dart';
 import 'package:flutter_app/blocs/dataBloc/data_event.dart';
 import 'package:flutter_app/blocs/dataBloc/data_state.dart';
 import 'package:flutter_app/data/model/api_result_model.dart';
+import 'package:flutter_app/newScreen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DataParent extends StatelessWidget {
@@ -32,7 +33,6 @@ class _DataScreenState extends State<DataScreen> {
   void initState(){
     super.initState();
     dataBloc = BlocProvider.of<DataBloc>(context);
-    // dataBloc.add(FetchDataEvent());
   }
 
   Widget buildDataList(List<Welcome> data){
@@ -40,7 +40,6 @@ class _DataScreenState extends State<DataScreen> {
         itemCount: data.length,
         shrinkWrap: true,
         itemBuilder: (ctx, pos) {
-          // return Center(child: Text(data[pos].city + "   " + data[pos].state + "   " + data[pos].country + "   " + data[pos].name),);
           return Padding(
               padding: const EdgeInsets.all(8.0),
               child: InkWell(
@@ -55,7 +54,9 @@ class _DataScreenState extends State<DataScreen> {
                   title: Text(data[pos].name),
                   subtitle: Text(data[pos].country),
                 ),
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => NewScreen(listInfo: data[pos])));
+                },
               ),
           );
         }
@@ -72,7 +73,9 @@ class _DataScreenState extends State<DataScreen> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           tooltip: 'Back',
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
         ),
         actions: [
           IconButton(
@@ -99,10 +102,14 @@ class _DataScreenState extends State<DataScreen> {
                   if(state is DataInitialState){
                     return const Center(child: Text("Wait..." ,style: TextStyle(color: Colors.blueAccent, fontWeight: FontWeight.bold),));
                   }else if(state is DataLoadingState){
-                    return const Center(child: CircularProgressIndicator());
+                    return Container(
+                        alignment: Alignment.center,
+                        child: const CircularProgressIndicator()
+                    );
                   }else if(state is DataLoadedState){
                     return Container(
                         height: MediaQuery.of(context).size.height,
+                        alignment: Alignment.center,
                         child: buildDataList(state.list)
                     );
                   }else if(state is DataErrorState){

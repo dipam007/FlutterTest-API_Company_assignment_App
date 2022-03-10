@@ -5,7 +5,6 @@ import 'package:flutter_app/blocs/registerBloc/register_state.dart';
 import 'package:flutter_app/homeScreen.dart';
 import 'package:flutter_app/loginScreen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class RegisterParent extends StatelessWidget {
   const RegisterParent({Key key}) : super(key: key);
